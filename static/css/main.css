@@ -1,0 +1,23 @@
+#totalorder{
+ background-color: #4f4242;
+ text-align: center;
+ color: white;
+    }
+#orderpending{
+background-color:#d60f19;
+text-align: center;
+color: white;
+}
+#outfordelivery{
+background-color:#c590de;
+  text-align: center;
+  color: white;
+}
+#orderdelivered{
+background-color:#e366bb;
+ text-align: center;
+ color: white ;
+}
+body {
+  background-color: lightblue;
+}

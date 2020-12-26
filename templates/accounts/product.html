@@ -1,0 +1,36 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<div class="row container-fluid">
+    <h3 class="text- col-sm-12">
+        Products:
+    </h3>
+
+</div>
+<div class="row container-fluid">
+    <div class="card card-body">
+        <table class="table table-sm">
+            <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Price</th>
+
+            </tr>
+
+            {% for product in products %}
+
+            <tr>
+                <td>{{product.name}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.price}}</td>
+
+            </tr>
+             {% endfor %}
+        </table>
+
+    </div>
+</div>
+
+
+{% endblock %}

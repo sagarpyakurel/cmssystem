@@ -1,0 +1,100 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card bg-light mb-3">
+            <div class="card-header">
+                <h5> Customer</h5>
+
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">
+                    <button type="button" class="btn btn-primary btn-sm btn-block">Update Customer</button>
+                    <a href="{% url 'create_order' customer.pk %}" class="btn btn-danger btn-sm btn-block">place order</a>
+                </h3>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+        <div class="card text-red bg-primary mb-3">
+            <div class="card-header">
+                <h5>Contact Info</h5>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Email:{{ customer.email }} </h5>
+
+                <h5>Phone:{{ customer.phone}} </h5>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+        <div class="card text-red bg-success mb-3">
+            <div class="card-header">
+                <h5>Total Order</h5>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title"> {{ ordercount }}</h4>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<hr>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="col-md-12" id="navbarSupportedContent">
+
+        <form class="form-inline my-2 my-lg-0" method="get">
+
+            {{myFilter.form}}
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+        </form>
+    </div>
+</nav>
+<hr>
+
+
+<div class="row col-sm-12">
+    <table class="table table-bordered bg-light">
+        <thead>
+        <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Category</th>
+            <th scope="col">Date Ordered</th>
+            <th scope="col">Status</th>
+             <th scope="col">Note</th>
+            <th scope="col">Update</th>
+            <th scope="col">Remove</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{order.product}}</td>
+            <td>{{order.product.category}}</td>
+            <td>{{order.date_created}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.note}}</td>
+
+            <td><a href="{% url 'update_order' order.pk %}"><button type="button" class="btn btn-primary">Update</button></a></td>
+            <td><a href="{% url 'delete_order' order.pk %}"><button type="button" class="btn btn-danger">Remove</button></a></td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

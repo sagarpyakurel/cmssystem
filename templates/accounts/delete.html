@@ -1,0 +1,27 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+        {% if customer %}
+        <p> Are you sure you want to delete <b>{{customer}}</b> ?</p>
+
+        <form action="{% url 'delete_customer' customer.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="button"><a href="{% url 'home' %}">Cancel</a></button>
+            <input type="submit" value="confirm" name="confirm">
+
+        </form>
+        {% endif %}
+
+  {% if order %}
+        <p> Are you sure you want to delete <b>{{order}}</b> ?</p>
+
+        <form action="{% url 'delete_order' order.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="button"><a href="{% url 'home' %}">Cancel</a></button>
+            <input type="submit" value="confirm" name="confirm">
+
+        </form>
+        {% endif %}
+
+{% endblock %}

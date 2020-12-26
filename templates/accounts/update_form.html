@@ -1,0 +1,28 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="d-flex justify-content-center">
+
+    <div class="card px-md-5 mt-5 mb-5 alert alert-primary">
+        <h1> Update Order </h1>
+
+
+        <form method="POST" action="">
+            {% csrf_token %}
+
+            {{forms.as_p}}
+
+            &nbsp &nbsp &nbsp &nbsp
+            <button type="submit" class="btn btn-success">submit</button>
+            <a class='btn btn-primary' href="{% url 'home' %}">Back</a>
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock %}
